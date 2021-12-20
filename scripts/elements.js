@@ -186,7 +186,7 @@ const elementActions = [
   ACID_ACTION,
   THERMITE_ACTION,
   BURNING_THERMITE_ACTION,
-  THERMITE_ACTION,
+  RETRON_MAT_ACTION,
 ];
 Object.freeze(elementActions);
 
@@ -425,6 +425,8 @@ function WELL_ACTION(x, y, i) {
   doProducer(x, y, i, OIL, false, 10);
 }
 
+
+
 function TORCH_ACTION(x, y, i) {
   doProducer(x, y, i, FIRE, true, 25);
 }
@@ -454,6 +456,8 @@ function GUNPOWDER_ACTION(x, y, i) {
 }
 
 function WAX_ACTION(x, y, i) {}
+
+function RETRON_MAT_ACTION(x, y, i) {}
 
 function FALLING_WAX_ACTION(x, y, i) {
   if (doGravity(x, y, i, false, 100)) return;
