@@ -186,6 +186,7 @@ const elementActions = [
   ACID_ACTION,
   THERMITE_ACTION,
   BURNING_THERMITE_ACTION,
+  THERMITE_ACTION,
 ];
 Object.freeze(elementActions);
 
