@@ -99,6 +99,7 @@ const ACID = __inGameColor(157, 240, 40);
 const THERMITE = __inGameColor(195, 140, 70);
 const BURNING_THERMITE = __inGameColor(255, 130, 130);
 const RETRON_MAT = __inGameColor(102, 153, 255);
+const FECES = __inGameColor(145,0,0);
 
 /*
  * It would be nice to combine the elements and elementActions
@@ -147,6 +148,7 @@ const elements = new Uint32Array([
   THERMITE,
   BURNING_THERMITE,
   RETRON_MAT,
+  FECES
 ]);
 const elementActions = [
   BACKGROUND_ACTION,
@@ -187,6 +189,7 @@ const elementActions = [
   THERMITE_ACTION,
   BURNING_THERMITE_ACTION,
   RETRON_MAT_ACTION,
+  FECES_ACTION,
 ];
 Object.freeze(elementActions);
 
@@ -268,6 +271,11 @@ function WATER_ACTION(x, y, i) {
   if (doGravity(x, y, i, true, 95)) return;
   if (doDensityLiquid(x, y, i, OIL, 25, 50)) return;
 }
+
+function FECES_ACTION(x, y, i) {
+  if (doGravity(x, y, i, true, 95)) return;
+}
+
 
 function PLANT_ACTION(x, y, i) {
   doGrow(x, y, i, WATER, 50);
