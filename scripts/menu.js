@@ -45,6 +45,7 @@ const elementMenuItems = [
   THERMITE,
   BURNING_THERMITE,
   RETRON_MAT,
+  FECES
 ];
 
 const menuNames = {};
@@ -86,6 +87,7 @@ menuNames[ACID] = "ACID";
 menuNames[THERMITE] = "THERMITE";
 menuNames[BURNING_THERMITE] = "BURNING THERMITE";
 menuNames[RETRON_MAT] = "RETRON MAT";
+menuNames[FECES] = "FECES";
 
 /*
  * Some element colors do not have very good contrast against
