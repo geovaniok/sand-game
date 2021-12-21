@@ -1,6 +1,6 @@
 /* Configuration of the menu */
 const ELEMENT_MENU_ELEMENTS_PER_ROW = 4;
-const PEN_SIZES = [2, 4, 8, 16, 32, 64, 128,256,512];
+const PEN_SIZES = [2, 4, 8, 16, 32, 64, 128,256,512,1024];
 const PEN_SIZE_LABELS = ["1px", "2px", "4px", "8px", "16px", "32px", "64px","128px","256px","512px"];
 const DEFAULT_PEN_IDX = 1;
 
