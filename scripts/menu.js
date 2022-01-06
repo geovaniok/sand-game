@@ -1,48 +1,93 @@
 /* Configuration of the menu */
 const ELEMENT_MENU_ELEMENTS_PER_ROW = 4;
-const PEN_SIZES = [2, 4, 8, 16, 32, 64, 128];
-const PEN_SIZE_LABELS = ["1px", "2px", "4px", "8px", "16px", "32px", "64px"];
+const PEN_SIZES = [2, 4, 8, 16, 32, 64, 128,256,512,1024];
+const PEN_SIZE_LABELS = ["1px", "2px", "4px", "8px", "16px", "32px", "64px","128px","256px","512px"];
 const DEFAULT_PEN_IDX = 1;
 
 /* Elements listed in the menu */
 // prettier-ignore
 const elementMenuItems = [
-  WALL, SAND, WATER, PLANT,
-  FIRE, SPOUT, WELL, SALT,
-  OIL, WAX, TORCH, ICE,
-  GUNPOWDER, NAPALM, NITRO, C4,
-  LAVA, CRYO, FUSE, MYSTERY,
-  CONCRETE, METHANE, SOIL, ACID,
-  THERMITE, BACKGROUND,
+  BACKGROUND,
+  WALL,
+  SAND,
+  WATER,
+  PLANT,
+  FIRE,
+  SALT,
+  SALT_WATER,
+  OIL,
+  SPOUT,
+  WELL,
+  TORCH,
+  GUNPOWDER,
+  WAX,
+  FALLING_WAX,
+  NITRO,
+  NAPALM,
+  C4,
+  CONCRETE,
+  FUSE,
+  ICE,
+  CHILLED_ICE,
+  LAVA,
+  ROCK,
+  STEAM,
+  CRYO,
+  MYSTERY,
+  METHANE,
+  SOIL,
+  WET_SOIL,
+  BRANCH,
+  LEAF,
+  POLLEN,
+  CHARGED_NITRO,
+  ACID,
+  THERMITE,
+  BURNING_THERMITE,
+  RETRON_MAT,
+  OBSIDIAN,
 ];
 
 const menuNames = {};
+menuNames[BACKGROUND] = "ERASER";
 menuNames[WALL] = "WALL";
 menuNames[SAND] = "SAND";
 menuNames[WATER] = "WATER";
 menuNames[PLANT] = "PLANT";
 menuNames[FIRE] = "FIRE";
 menuNames[SALT] = "SALT";
+menuNames[SALT_WATER] = "SALT WATER";
 menuNames[OIL] = "OIL";
-menuNames[SPOUT] = "SPOUT";
+menuNames[SPOUT] = "SPOUT ";
 menuNames[WELL] = "WELL";
 menuNames[TORCH] = "TORCH";
 menuNames[GUNPOWDER] = "GUNPOWDER";
-menuNames[WAX] = "WAX";
-menuNames[NITRO] = "NITRO";
+menuNames[WAX] = "WAX ";
+menuNames[FALLING_WAX] = "FALLING WAX";
+menuNames[NITRO] = "NITRO ";
 menuNames[NAPALM] = "NAPALM";
-menuNames[C4] = "C-4";
-menuNames[CONCRETE] = "CONCRETE";
-menuNames[BACKGROUND] = "ERASER";
+menuNames[C4] = "C-4 ";
+menuNames[CONCRETE] = "CONCRETE ";
 menuNames[FUSE] = "FUSE";
 menuNames[ICE] = "ICE";
+menuNames[CHILLED_ICE] = "CHILLED ICE";
 menuNames[LAVA] = "LAVA";
-menuNames[METHANE] = "METHANE";
+menuNames[ROCK] = "ROCK";
+menuNames[STEAM] = "STEAM";
 menuNames[CRYO] = "CRYO";
 menuNames[MYSTERY] = "???";
+menuNames[METHANE] = "METHANE";
 menuNames[SOIL] = "SOIL";
+menuNames[WET_SOIL] = "WET SOIL";
+menuNames[BRANCH] = "BRANCH";
+menuNames[LEAF] = "LEAF";
+menuNames[POLLEN] = "POLLEN";
+menuNames[CHARGED_NITRO] = "CHARGED NITRO ";
 menuNames[ACID] = "ACID";
 menuNames[THERMITE] = "THERMITE";
+menuNames[BURNING_THERMITE] = "BURNING THERMITE";
+menuNames[RETRON_MAT] = "RETRON MAT";
+menuNames[OBSIDIAN] = "OBSIDIAN";
 
 /*
  * Some element colors do not have very good contrast against

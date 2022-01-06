@@ -98,6 +98,8 @@ const CHARGED_NITRO = __inGameColor(245, 98, 78);
 const ACID = __inGameColor(157, 240, 40);
 const THERMITE = __inGameColor(195, 140, 70);
 const BURNING_THERMITE = __inGameColor(255, 130, 130);
+const RETRON_MAT = __inGameColor(102, 153, 255);
+const OBSIDIAN = __inGameColor(27, 24, 41);
 
 /*
  * It would be nice to combine the elements and elementActions
@@ -145,6 +147,8 @@ const elements = new Uint32Array([
   ACID,
   THERMITE,
   BURNING_THERMITE,
+  RETRON_MAT,
+  OBSIDIAN,
 ]);
 const elementActions = [
   BACKGROUND_ACTION,
@@ -184,6 +188,8 @@ const elementActions = [
   ACID_ACTION,
   THERMITE_ACTION,
   BURNING_THERMITE_ACTION,
+  RETRON_MAT_ACTION,
+  OBSIDIAN_ACTION,
 ];
 Object.freeze(elementActions);
 
@@ -245,6 +251,7 @@ function initElements() {
 /* ======================= Element action handlers ======================= */
 
 function WALL_ACTION(x, y, i) {}
+function OBSIDIAN_ACTION(x, y, i) {}
 
 function BACKGROUND_ACTION(x, y, i) {
   throw "As an optimization, we should never be invoking the action for the " +
@@ -262,6 +269,7 @@ function SAND_ACTION(x, y, i) {
 }
 
 function WATER_ACTION(x, y, i) {
+  //if (doTransform(x, y, i, LAVA, OBSIDIAN, 100, 100)) return;
   if (doGravity(x, y, i, true, 95)) return;
   if (doDensityLiquid(x, y, i, OIL, 25, 50)) return;
 }
@@ -422,6 +430,8 @@ function WELL_ACTION(x, y, i) {
   doProducer(x, y, i, OIL, false, 10);
 }
 
+
+
 function TORCH_ACTION(x, y, i) {
   doProducer(x, y, i, FIRE, true, 25);
 }
@@ -451,6 +461,8 @@ function GUNPOWDER_ACTION(x, y, i) {
 }
 
 function WAX_ACTION(x, y, i) {}
+
+function RETRON_MAT_ACTION(x, y, i) {}
 
 function FALLING_WAX_ACTION(x, y, i) {
   if (doGravity(x, y, i, false, 100)) return;
@@ -621,15 +633,13 @@ const __lava_immune = [
   WATER,
   SALT_WATER,
   STEAM,
+  OBSIDIAN,
 ];
 Object.freeze(__lava_immune);
 const __num_lava_immune = __lava_immune.length;
 
 function LAVA_ACTION(x, y, i) {
-  if (random() < 1 && random() < 50) {
-    const wallLoc = borderingAdjacent(x, y, i, WALL);
-    if (wallLoc !== -1) gameImagedata32[wallLoc] = LAVA;
-  }
+  if (doTransform(x, y, i, WATER, OBSIDIAN, 100, 100)) return;
 
   const up = y !== 0 ? i - width : -1;
   const down = y !== MAX_Y_IDX ? i + width : -1;
@@ -664,13 +674,6 @@ function LAVA_ACTION(x, y, i) {
    * DO NOT ADD ANYTHING IN HERE THAT CHECKS CORNER PIXELS.
    */
   if (!skipDirectAdjacent) {
-    var waterLoc = bordering(x, y, i, WATER);
-    if (waterLoc === -1) waterLoc = bordering(x, y, i, SALT_WATER);
-    if (waterLoc !== -1) {
-      gameImagedata32[waterLoc] = STEAM;
-      gameImagedata32[i] = ROCK;
-      return;
-    }
 
     if (random() < 4) {
       const numLavaParticles = particles.particleCounts[LAVA_PARTICLE];
